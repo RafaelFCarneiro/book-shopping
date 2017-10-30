@@ -4,14 +4,13 @@ import { DataStorageService } from './shared/data-storage.service';
 import { RecipeService } from './recipes/recipe.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 
-import { DropdownDirective } from './shared/dropdown.directive';
-
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { SigninComponent } from './auth/signin/signin.component';
 
+import { SharedModule } from './shared/shared.module';
 import { RecipesModules } from './recipes/recipes.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -28,7 +27,6 @@ import { NgModule } from '@angular/core';
     HeaderComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropdownDirective,
     SignupComponent,
     SigninComponent
   ],
@@ -37,7 +35,8 @@ import { NgModule } from '@angular/core';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    RecipesModules
+    RecipesModules,
+    SharedModule
   ],
   providers: [
     ShoppingListService,
