@@ -28,6 +28,6 @@ import { NgModule } from '@angular/core';
     SharedModule
   ]
 })
-export class RecipesModules {
+export class RecipesModule {
 
 }

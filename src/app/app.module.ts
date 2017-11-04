@@ -8,7 +8,6 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { HeaderComponent } from './header/header.component';
 
 import { SharedModule } from './shared/shared.module';
-import { RecipesModules } from './recipes/recipes.module';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -18,11 +17,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,6 @@ import { NgModule } from '@angular/core';
     AppRoutingModule,
     AuthModule,
     ShoppingListModule,
-    RecipesModules,
     SharedModule
   ],
   providers: [
