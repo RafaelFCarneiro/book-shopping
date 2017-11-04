@@ -1,10 +1,5 @@
 
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
-import { AuthGuard } from './auth/auth-guard.service';
-import { AuthService } from './auth/auth.service';
-import { DataStorageService } from './shared/data-storage.service';
-import { RecipeService } from './recipes/recipe.service';
-import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
@@ -31,13 +26,6 @@ import { NgModule } from '@angular/core';
     AuthModule,
     CoreModule,
     ShoppingListModule
-  ],
-  providers: [
-    ShoppingListService,
-    RecipeService,
-    DataStorageService,
-    AuthService,
-    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
