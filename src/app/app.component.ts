@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-import * as config from './config/init-conf.json';
+import * as firebaseConf from './config/firebase-conf.json';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,6 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   ngOnInit() {
-    firebase.initializeApp((<any>config));
+    firebase.initializeApp((<any>firebaseConf));
   }
 }
