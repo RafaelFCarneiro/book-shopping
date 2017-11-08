@@ -13,8 +13,8 @@ export class DataStorageService {
   storeRecipes() {
     const token = this.authService.getToken();
     const url = this.getUrl('/recipes.json'); // this.getUrl('/recipes.json', `?auth=${token}`)
-    // const headers = new HttpHeaders().set('Autorizartion', 'Bearer asd103949234');
 
+    // const headers = new HttpHeaders().set('Autorizartion', 'Bearer asd103949234');
     // return this.httpClient.put(
     //   url,
     //   this.recipeService.getRecipes(),
@@ -35,10 +35,13 @@ export class DataStorageService {
 
   getRecipes() {
     const token = this.authService.getToken();
+    const url = this.getUrl('/recipes.json') // this.getUrl('/recipes.json', `?auth=${token}`)
     // this.httpClient.get<Recipe[]>(this.getUrl('/recipes.json', `?auth=${token}`))
-    this.httpClient.get<Recipe[]>(this.getUrl('/recipes.json', `?auth=${token}`), {
+
+    this.httpClient.get<Recipe[]>(url, {
       observe: 'body', // this is the default value
-      responseType: 'json' // this is the default value
+      responseType: 'json', // this is the default value
+      params: new HttpParams().set('auth', token)
     }).map(
         (recipes) => {
           for (const recipe of recipes) {

@@ -1,3 +1,5 @@
+import { AuthInterceptor } from '../shared/auth.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './../auth/auth.service';
 import { DataStorageService } from './../shared/data-storage.service';
 import { RecipeService } from './../recipes/recipe.service';
@@ -28,7 +30,8 @@ import { NgModule } from '@angular/core';
     ShoppingListService,
     RecipeService,
     DataStorageService,
-    AuthService
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass:  AuthInterceptor, multi: true }
   ]
 })
 
