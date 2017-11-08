@@ -1,3 +1,4 @@
+import { LoggingInterceptor } from './../shared/logging.interceptor';
 import { AuthInterceptor } from '../shared/auth.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './../auth/auth.service';
@@ -31,7 +32,8 @@ import { NgModule } from '@angular/core';
     RecipeService,
     DataStorageService,
     AuthService,
-    { provide: HTTP_INTERCEPTORS, useClass:  AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass:  AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass:  LoggingInterceptor, multi: true }
   ]
 })
 
