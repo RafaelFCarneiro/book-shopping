@@ -1,4 +1,4 @@
-//import { HttpEvent, HttpEventType } from '@angular/common/http';
+// import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { AuthService } from '../../auth/auth.service';
 import { Response } from '@angular/http';
 import { DataStorageService } from '../../shared/data-storage.service';
