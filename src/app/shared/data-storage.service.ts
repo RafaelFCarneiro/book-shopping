@@ -11,7 +11,6 @@ export class DataStorageService {
     private authService: AuthService) {}
 
   storeRecipes() {
-    const token = this.authService.getToken();
     const url = this.getUrl('/recipes.json'); // this.getUrl('/recipes.json', `?auth=${token}`)
 
     // const headers = new HttpHeaders().set('Autorizartion', 'Bearer asd103949234');
@@ -22,26 +21,25 @@ export class DataStorageService {
     //   {
     //     observe: 'body',
     //     // headers: headers
-    //     params: new HttpParams().set('auth', token)
+    //     params: new HttpParams().set('auth', this.authService.getToken())
     //   }
     // );
 
     const req = new HttpRequest('PUT', url, this.recipeService.getRecipes(), {
       reportProgress: true,
-      params: new HttpParams().set('auth', token)
+      // params: new HttpParams().set('auth', token)
     });
     return this.httpClient.request(req);
   }
 
   getRecipes() {
-    const token = this.authService.getToken();
     const url = this.getUrl('/recipes.json') // this.getUrl('/recipes.json', `?auth=${token}`)
     // this.httpClient.get<Recipe[]>(this.getUrl('/recipes.json', `?auth=${token}`))
 
     this.httpClient.get<Recipe[]>(url, {
       observe: 'body', // this is the default value
       responseType: 'json', // this is the default value
-      params: new HttpParams().set('auth', token)
+      // params: new HttpParams().set('auth', this.authService.getToken())
     }).map(
         (recipes) => {
           for (const recipe of recipes) {
