@@ -4,10 +4,6 @@ import { Ingredient } from './../../shared/ingredient.model';
 
 import { Action } from '@ngrx/store';
 
-export interface AppState {
-  shoppingList: State
-}
-
 export interface State {
   ingredients: Ingredient[];
   editedIngredient: Ingredient;
