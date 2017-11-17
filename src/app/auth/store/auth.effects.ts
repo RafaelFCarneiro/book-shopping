@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 
@@ -23,6 +24,7 @@ export class AuthEffects {
       return fromPromise(firebase.auth().currentUser.getIdToken())
     })
     .mergeMap((token: string) => {
+      this.router.navigate(['/']);
       return [
         {
           type: AuthActions.SIGNUP
@@ -34,5 +36,45 @@ export class AuthEffects {
       ]
     });
 
-  constructor(private actions$: Actions) {}
+  @Effect()
+  authSignin = this.actions$
+    .ofType(AuthActions.TRYSIGNIN)
+    .map((action: AuthActions.TrySignin) => {
+      return action.payload
+    })
+    .switchMap((authData: {username: string, password: string}) => {
+      return fromPromise(firebase.auth().signInWithEmailAndPassword(
+        authData.username, authData.password
+      ));
+    })
+    .switchMap(() => {
+      return fromPromise(firebase.auth().currentUser.getIdToken())
+    })
+    .mergeMap((token: string) => {
+      this.router.navigate(['/']);
+      return [
+        {
+          type: AuthActions.SIGNIN
+        },
+        {
+          type: AuthActions.SET_TOKEN,
+          payload: token
+        }
+      ]
+    });
+
+  @Effect({dispatch: false})
+  authLogout = this.actions$
+    .ofType(AuthActions.LOGOUT)
+    .switchMap(() => {
+      return fromPromise(firebase.auth().signOut());
+    })
+    .do(() => {
+      this.router.navigate(['/'])
+    });
+
+  constructor(
+    private actions$: Actions,
+    private router: Router
+  ) {}
 }

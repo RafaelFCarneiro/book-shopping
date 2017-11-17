@@ -1,5 +1,4 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from '@angular/common/http';
-import { AuthService } from '../auth/auth.service';
 import { Recipe } from './../recipes/recipe.model';
 import { RecipeService } from '../recipes/recipe.service';
 import { Injectable } from '@angular/core';
@@ -8,8 +7,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DataStorageService {
-  constructor(private httpClient: HttpClient, private recipeService: RecipeService,
-    private authService: AuthService) {}
+  constructor(private httpClient: HttpClient, private recipeService: RecipeService) {}
 
   storeRecipes() {
     const url = this.getUrl('/recipes.json'); // this.getUrl('/recipes.json', `?auth=${token}`)

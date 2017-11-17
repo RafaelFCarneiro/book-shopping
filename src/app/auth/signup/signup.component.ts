@@ -11,7 +11,6 @@ import * as AuthActions from '../store/auth.actions';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
   constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {}
@@ -20,6 +19,6 @@ export class SignupComponent implements OnInit {
     this.store.dispatch(new AuthActions.TrySignup({
       username: form.value.email,
       password: form.value.password
-    }))
+    }));
   }
 }
