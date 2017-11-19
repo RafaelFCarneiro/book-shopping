@@ -70,7 +70,7 @@ export class AuthEffects {
       return fromPromise(firebase.auth().signOut());
     })
     .do(() => {
-      this.router.navigate(['/'])
+      this.router.navigate(['/']);
     });
 
   constructor(
