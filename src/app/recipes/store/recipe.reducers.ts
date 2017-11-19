@@ -1,5 +1,5 @@
-import { Ingredient } from './../shared/ingredient.model';
-import { Recipe } from './../recipes/recipe.model';
+import { Ingredient } from '../../shared/ingredient.model';
+import { Recipe } from '../../recipes/recipe.model';
 
 export interface FeatureState {
   recipes: State
