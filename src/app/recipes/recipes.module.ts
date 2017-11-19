@@ -5,12 +5,16 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
 import { RecipesComponent } from './recipes.component';
 
+import { recipeReducer } from 'app/store/recipe.reducers';
+
 import { SharedModule } from './../shared/shared.module';
 import { RecipesRoutingModule } from './recipes-routing.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { StoreModule } from '@ngrx/store';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { NgModule } from '@angular/core';
     CommonModule,
     ReactiveFormsModule,
     RecipesRoutingModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature('recipes', recipeReducer)
   ]
 })
 export class RecipesModule {
