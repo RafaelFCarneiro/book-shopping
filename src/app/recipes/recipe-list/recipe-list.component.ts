@@ -1,10 +1,9 @@
-import * as fromRecipe from '../store/recipe.reducers';
-
-import { Observable } from 'rxjs/Rx';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import * as fromRecipe from '../store/recipe.reducers';
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,9 +14,9 @@ export class RecipeListComponent implements OnInit {
   recipeState: Observable<fromRecipe.State>;
 
   constructor(
-    private store: Store<fromRecipe.FeatureState>,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private store: Store<fromRecipe.FeatureState>,
   ) { }
 
   ngOnInit() {
