@@ -24,7 +24,7 @@ import { NgModule } from '@angular/core';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'my-universal-app' }),
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
