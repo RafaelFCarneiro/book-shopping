@@ -2,6 +2,10 @@ import { Router } from '@angular/router';
 import { Actions, Effect } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/mergeMap';
+
 import * as AuthActions from './auth.actions';
 import * as firebase from 'firebase';
 

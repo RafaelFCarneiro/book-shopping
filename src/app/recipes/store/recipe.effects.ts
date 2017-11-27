@@ -3,6 +3,10 @@ import { Actions, Effect } from '@ngrx/effects';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/withLatestFrom';
+
 import * as RecipeActions from '../store/recipe.actions';
 import * as fromRecipe from '../store/recipe.reducers';
 import { Recipe } from '../recipe.model';
